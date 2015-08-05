@@ -1,29 +1,48 @@
 <script>
 
-var guess, answer, message;
+GuessingGame = function(){
+  this.guess = '';
+  this.message = '';
+  this.answer = '';
+  this.answer2 = '';
 
-// Gernerate random number between 1 and 100
-answer = Math.floor(Math.random() * 100 + 1);
-console.log(answer);
-answer2 = Math.floor(Math.random() * 10 + 1);
-
-guess = prompt("I'm holding a random number raffle between 1 and 100. Give it your best guess!");
-
-if (guess != answer) {
-  message = 'You got it wrong. shoot!, Better luck next time'
-  alert(message);
-  guess = prompt('Guess again with a smaller number range, 1 to 10')
-  if (guess == answer2) {
-    message = ('You are amazing!')
-
+  this.getRandom = function(seed){
+    return Math.floor(Math.random() * seed + 1);
   }
 
-}
+  this.getMessage = function(){
+    if (this.guess != this.answer) {
+      this.message = 'You got it wrong. shoot!, Better luck next time'
+      alert(this.message);
+      this.guess = prompt('Guess again with a smaller number range, 1 to 10')
+      if (this.guess == this.answer2) {
+        this.message ='You are amazing!'
+        alert(this.message);
+      }
+      if (this.guess != this.answer2){
+        this.message = "You are wrong again, but you are still amazing!"
+          alert(this.message);
+      }
+    } else {
+      this.message = 'You won the amazing prize of feeling great about guessing right!'
+        alert(this.message);
+    }
+  }
+  this.run = function(){
+    this.answer = this.getRandom(100);
+    console.log(this.answer);
+    this.answer2 = this.getRandom(10);
+    console.log(this.answer2);
+    this.guess = prompt("I'm holding a random number raffle between 1 and 100. Give it your best guess!");
+    this.getMessage();
 
-else {
-  message = 'You won the amazing prize of feeling great about guessing right!'
-}
 
-alert(message);
+  }
+}
+// var guess, answer, message; commented out and replaced using a constructor
+var guessingGame = new GuessingGame();
+guessingGame.run();
+// Gernerate random number between 1 and 100
+
 
 </script>
