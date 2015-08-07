@@ -1,0 +1,46 @@
+<script type="text/javascript">
+  var GuessingGame = function() {
+    this.guess;
+    this.message;
+    this.answer;
+
+
+    this.getRandom = function(seed) {
+    return Math.floor(Math.random() * seed + 1);
+    }
+
+    this.run = function(guess, answer) {
+
+      if(answer) {
+        this.answer = answer;
+      }
+      else {
+        this.answer = this.getRandom(100);
+      }
+      this.guess = parseInt(guess);
+      this.checkGuess();
+    }
+
+    this.checkGuess = function() {
+
+      if(this.guess === this.answer) {
+        this.message = 'You won the amazing prize of feeling great about guessing right!';
+        alert(this.message);
+      }
+      else if(this.guess < this.answer) {
+        this.run(prompt('you are a little low, try again'), this.answer);
+      }
+      else if(this.guess > this.answer) {
+        this.run(prompt('you are a little high, try again'), this.answer);
+      }
+      else {
+        this.message = 'Whoa! Please enter a valid number';
+        alert(this.message);
+      }
+    }
+  }
+
+  var guessingGame = new GuessingGame();
+  guessingGame.run( prompt('I am holding a random number raffle between 1 and 100. Give it your best guess!') );
+
+</script>
