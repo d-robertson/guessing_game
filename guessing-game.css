@@ -1,0 +1,56 @@
+
+
+
+#myPrompt {
+	display:block;
+}
+
+#speechBubble {
+	background-image: url('img/speechbubble.png');
+	height: 261px;
+	width: 300px;
+	position: absolute; 
+	top: 5px;
+	right: 485px;
+} 
+
+#message {
+	position: relative;
+	margin-top: 82px;
+	margin-left: 55px;
+	height: 150px;
+	width: 200px;
+}
+
+#scoreBoard {
+	background-image: url('img/scoreBoard.png');
+	width: 200px;
+	height: 150px;
+	position: absolute;
+	top: 355px;
+	right: 950px;
+}
+
+#scoreLabel {
+	color: green;
+	position: relative;
+	margin-top: 68px;
+	margin-right: -48px;
+}
+
+#previousHighScore {
+	background-image: url('img/scoreBoard.png');
+	color: black;
+	width: 200px;
+	height: 150px;
+	position: absolute;
+	top: 355px;
+	right: 440px;
+}
+
+#highScoreNumber {
+	color: red;
+	position: relative;
+	margin-top: 68px;
+	margin-right: -48px;
+}
