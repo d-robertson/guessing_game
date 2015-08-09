@@ -2,63 +2,37 @@
 <html>
   <head>
     <title>Guessing Game</title>
+    <link rel="stylesheet" href="guessing-game.css">
   </head>
-  <body style="max-width:960px; margin:0 auto; text-align:center;">
+  <body style="max-width:960px; margin:0 auto; margin-top: 100px; text-align:center;">
+    
+    
+    <img src="img/pai-mei.gif" />
     <h2>Try and become a guessing Master!</h2>
-    <img src="https://media1.giphy.com/media/JJfmK7fpNq8PC/200.gif" />
-    <p>Make a guess and become the new Guessing Master!!!!!!!!</p>
 
+   
+    <div id="myPrompt" class="promptDiv">
+      <input id="promptGuess" type="text"></input>
+      <input id="promptButton" type="button" value="submit"></input>
+    </div>
+
+    <div id="speechBubble">
+      <p id="message"></p>
+    </div>
+
+    
+    <div id="scoreBoard">
+      <h3 id="scoreHeader">Guess Counter</h3>
+      <h2 id="scoreLabel">0</h2>
+    </div>
+
+    
+    <div id="previousHighScore">
+      <h3 id="highScoreTitle">Previous High Score</h3>
+      <h2 id="highScoreNumber">0</h2>
+    </div>
+
+    <script type="text/javascript" src="guessing-game.js"></script>
   </body>
 </html>
 
-
-
-
-
-
-<script type="text/javascript">
-  var GuessingGame = function() {
-    this.guess;
-    this.message;
-    this.answer;
-
-
-    this.getRandom = function(seed) {
-    return Math.floor(Math.random() * seed + 1);
-    }
-
-    this.run = function(guess, answer) {
-
-      if(answer) {
-        this.answer = answer;
-      }
-      else {
-        this.answer = this.getRandom(100);
-      }
-      this.guess = parseInt(guess);
-      this.checkGuess();
-    }
-
-    this.checkGuess = function() {
-
-      if(this.guess === this.answer) {
-        this.message = 'You won the amazing prize of feeling great about guessing right!';
-        alert(this.message);
-      }
-      else if(this.guess < this.answer) {
-        this.run(prompt('you are a little low, try again'), this.answer);
-      }
-      else if(this.guess > this.answer) {
-        this.run(prompt('you are a little high, try again'), this.answer);
-      }
-      else {
-        this.message = 'Whoa! Please enter a valid number';
-        alert(this.message);
-      }
-    }
-  }
-
-  var guessingGame = new GuessingGame();
-  guessingGame.run( prompt('I am holding a random number raffle between 1 and 100. Give it your best guess!') );
-
-</script>
